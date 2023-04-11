@@ -8,7 +8,9 @@ ts=100.123.456.789
 username="user"
 
 # ssh via tailscale when tailscale activate, ssh with local address when tailscale deactivate
-if[ping -c 1 $ts > /dev/null; echo $?]; then
+isTsActivate=ping -c 1 $ts > /dev/null; echo $?
+
+if[$isTsActivate -eq 0]; then
     ssh $username@$ts
 else
     ssh $username@$local
