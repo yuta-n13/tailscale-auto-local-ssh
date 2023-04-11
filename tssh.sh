@@ -12,4 +12,4 @@ if[ping -c 1 $ts > /dev/null; echo $?]; then
     ssh $username@$ts
 else
     ssh $username@$local
-
+fi
